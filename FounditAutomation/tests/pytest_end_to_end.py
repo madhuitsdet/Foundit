@@ -15,6 +15,13 @@ def test_TestCase_01():
     driver.get("https://www.foundit.in/")
     driver.maximize_window()
     driver.implicitly_wait(10)
+    # --- HANDLING OVERLAYS ---
+    # 1. Close Cookie Banner if it exists
+    try:
+        # Based on Foundit's usual structure
+        driver.find_element(By.XPATH, "//button[contains(text(),'Okay')]").click()
+    except:
+        pass
 
 #******************login page**********************************************
     time.sleep(3)
@@ -24,7 +31,13 @@ def test_TestCase_01():
     driver.find_element(By.XPATH, "//span[contains(text(),'Login via Password')]").click()
     driver.find_element(By.ID, "userName").send_keys("madhuitsdet@gmail.com")
     driver.find_element(By.ID, "password").send_keys("Madhu@2000")
-    driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    try:
+        # Use the 'Okay' or 'Accept' button ID/Class from the banner
+        cookie_button = driver.find_element(By.ID, "gdpr-cookie-accept")  # Example ID
+        cookie_button.click()
+    except:
+        print("Cookie banner not found or already closed")
+    driver.find_element(By.XPATH, "//button[text()='Login']").click()
 
     #******************homepage**************************************************
     homepagevalidation = driver.find_element(By.CSS_SELECTOR, "span[class='text-brand-primary']").text
