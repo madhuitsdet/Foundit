@@ -78,7 +78,7 @@ def test_TestCase_01():
             action.scroll_to_element(job).perform()
             time.sleep(2)
             job.click()
-            time.sleep(2)
+            time.sleep(3)
         else:
             print("No Quick Apply Job")
 
