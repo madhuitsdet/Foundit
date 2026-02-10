@@ -50,7 +50,7 @@ def test_TestCase_01():
     print(profileinfo)
 
     #***********************profile page**********************************************
-    resume_file_path = "C:\\python32-38\\foundit\\FounditAutomation\\data\\Madhu_Vanga_SDET_v5.pdf"
+    resume_file_path = "C:\\python32-38\\foundit\\FounditAutomation\\data\\Madhu_Vanga_SDET_v6.pdf"
     # driver.find_element(By.XPATH, "(//button[@type='button'][text()='Replace resume'])[2]").click()
     uploadfile = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
     uploadfile.send_keys(resume_file_path)
@@ -78,9 +78,9 @@ def test_TestCase_01():
     element = driver.find_element(By.XPATH, "//span[contains(text(),'Job Freshness')]")
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
     action.scroll_to_element(element).perform()
-    driver.find_element(By.XPATH, "//span[contains(text(),'Last 30 days')]").click()
+    driver.find_element(By.XPATH, "//span[contains(text(),'Last 1 days')]").click()
     time.sleep(2)
-    Quick_jobs = driver.find_elements(By.XPATH, "//a[contains(text(),'Test')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")
+    Quick_jobs = driver.find_elements(By.XPATH, "//a[contains(text(),'Test') or contains(text(),'Performance') or contains(text(),'QA') or contains(text(),'pytest')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")
     count = len(Quick_jobs)
     print("Quick Apply: {}".format(count))
     for job in Quick_jobs:
@@ -94,17 +94,6 @@ def test_TestCase_01():
             time.sleep(3)
         else:
             print("No Quick Apply Job")
-
-
-
-
-
-
-
-
-
-
-
 
 
 
