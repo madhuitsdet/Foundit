@@ -1,4 +1,5 @@
 import time
+import os
 import datetime
 from itertools import count
 from time import sleep
@@ -59,7 +60,8 @@ def test_TestCase_01():
     print(profileinfo)
 
     #***********************profile page**********************************************
-    resume_file_path = "C:\\python32-38\\foundit\\FounditAutomation\\data\\Madhu_Vanga_SDET_v6.pdf"
+    # resume_file_path = "C:\\python32-38\\foundit\\FounditAutomation\\data\\Madhu_Vanga_SDET_v6.pdf"
+    resume_file_path = os.path.abspath("FounditAutomation/data/Madhu_Vanga_SDET_v6.pdf")
     # driver.find_element(By.XPATH, "(//button[@type='button'][text()='Replace resume'])[2]").click()
     uploadfile = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
     uploadfile.send_keys(resume_file_path)
