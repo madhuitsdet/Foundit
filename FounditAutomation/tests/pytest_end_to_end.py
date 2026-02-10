@@ -39,7 +39,7 @@ def test_TestCase_01():
         print("Cookie banner not found or already closed")
     driver.find_element(By.XPATH, "//button[text()='Login']").click()
 
-    #******************homepage**************************************************
+    #********************homepage**************************************************
     homepagevalidation = driver.find_element(By.CSS_SELECTOR, "span[class='text-brand-primary']").text
     print("homepage"+homepagevalidation)
     time.sleep(1)
