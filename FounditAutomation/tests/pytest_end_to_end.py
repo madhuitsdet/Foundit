@@ -9,10 +9,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import service
+from selenium.webdriver.chrome.options import Options
 
 def test_TestCase_01():
     driver = webdriver.Chrome()
     driver.get("https://www.foundit.in/")
+
+    # options = webdriver.ChromeOptions()
+    # options.add_argument("--headless=new")  # Required for CI
+    # options.add_argument("--window-size=1920,1080")  # Essential for headless
+    # options.add_argument("--start-maximized")
+    # driver = webdriver.Chrome(options=options)
+    # driver.get("https://www.foundit.in/")
+
     driver.maximize_window()
     driver.implicitly_wait(10)
     # --- HANDLING OVERLAYS ---
@@ -24,7 +33,7 @@ def test_TestCase_01():
         pass
 
 #******************login page**********************************************
-    time.sleep(3)
+    time.sleep(5)
     welcomepage = driver.find_element(By.CSS_SELECTOR, "svg[xmlns='http://www.w3.org/2000/svg']").text
     print(welcomepage)
     driver.find_element(By.CSS_SELECTOR, "div[class='flex gap-4'] button[type='button']:nth-child(1)").click()
