@@ -60,9 +60,15 @@ def test_TestCase_01():
     print(profileinfo)
 
     #***********************profile page**********************************************
-    # resume_file_path = "C:\\python32-38\\foundit\\FounditAutomation\\data\\Madhu_Vanga_SDET_v6.pdf"
-    resume_file_path = os.path.abspath("FounditAutomation/data/Madhu_Vanga_SDET_v6.pdf")
-    # driver.find_element(By.XPATH, "(//button[@type='button'][text()='Replace resume'])[2]").click()
+    # Get the directory where pytest_end_to_end.py is located
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Move up one level to FounditAutomation, then into data
+    resume_file_path = os.path.join(current_dir, "..", "data", "Madhu_Vanga_SDET_v6.pdf")
+
+    # # Standardize the path for the OS (fixes slash issues)
+    resume_file_path = os.path.normpath(resume_file_path)
+
     uploadfile = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
     uploadfile.send_keys(resume_file_path)
     Uploadstatus = driver.find_element(By.XPATH, "//span[text()='Resume uploaded successfully']").text
