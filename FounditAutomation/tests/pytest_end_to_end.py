@@ -12,7 +12,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import service
 from selenium.webdriver.chrome.options import Options
 
-def test_TestCase_01():
+
+def test_TestCase_01(test_browser):
+
     driver = webdriver.Chrome()
     driver.get("https://www.foundit.in/")
 
