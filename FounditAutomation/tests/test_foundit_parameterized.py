@@ -30,7 +30,7 @@ def test_TestCase_01(test_browser):
 
     #******************login page**********************************************
     foundit_login = FounditLogin(driver)
-    foundit_login.foundit_login()
+    foundit_login.foundit_login("madhuitsdet@gmail.com", "Madhu@2000")
 
     #********************homepage**************************************************
     foundit_homepage = FounditHomepage(driver)

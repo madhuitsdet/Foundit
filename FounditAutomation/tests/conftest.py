@@ -9,9 +9,10 @@ from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.edge.options import Options
+from selenium.webdriver.edge.options import Options as EdgeOptions
 
 def pytest_addoption(parser):
-    parser.addoption("--browser_name", action="store", default="chrome", help="browser selectino")
+    parser.addoption("--browser_name", action="store", default="edge", help="browser selectino")
 
 @pytest.fixture(scope="function")
 def test_browser(request):
@@ -29,7 +30,15 @@ def test_browser(request):
         driver = webdriver.Firefox()
 
     elif browser_name == "edge":
-        driver = webdriver.Edge
+        driver = webdriver.Edge()
+
+    elif browser_name == "edgeheadless":
+        edge_options = EdgeOptions()
+        # These three flags are essential for Jenkins/Docker environments
+        edge_options.add_argument("--headless=new")
+        edge_options.add_argument("--disable-gpu")
+        edge_options.add_argument("--no-sandbox")
+        driver = webdriver.Edge(options=edge_options)
 
 
     driver.get("https://www.foundit.in/")

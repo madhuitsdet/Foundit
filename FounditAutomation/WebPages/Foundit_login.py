@@ -6,15 +6,15 @@ class FounditLogin:
     def __init__(self, driver):
         self.driver = driver
 
-    def foundit_login(self):
+    def foundit_login(self, userName, password):
         # ******************login page**********************************************
         time.sleep(5)
         welcomepage = self.driver.find_element(By.CSS_SELECTOR, "div[class='flex_start h-9 grow cursor-pointer gap-5']").text
         print(welcomepage)
         self.driver.find_element(By.CSS_SELECTOR, "div[class='flex gap-4'] button[type='button']:nth-child(1)").click()
         self.driver.find_element(By.XPATH, "//span[contains(text(),'Login via Password')]").click()
-        self.driver.find_element(By.ID, "userName").send_keys("madhuitsdet@gmail.com")
-        self.driver.find_element(By.ID, "password").send_keys("Madhu@2000")
+        self.driver.find_element(By.ID, "userName").send_keys(f"{userName}")
+        self.driver.find_element(By.ID, "password").send_keys(f"{password}")
         try:
             # Use the 'Okay' or 'Accept' button ID/Class from the banner
             cookie_button = self.driver.find_element(By.ID, "gdpr-cookie-accept")  # Example ID

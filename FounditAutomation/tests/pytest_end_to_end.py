@@ -13,9 +13,9 @@ from selenium.webdriver.chrome.service import service
 from selenium.webdriver.chrome.options import Options
 
 
-def test_TestCase_01(test_browser):
+def test_TestCase_01():
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Firefox()
     driver.get("https://www.foundit.in/")
 
     # options = webdriver.ChromeOptions()
