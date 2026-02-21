@@ -1,0 +1,11 @@
+{
+  "data" : [
+    {
+      "userName" : "madhuitsdet@gmail.com",
+      "password" : "Madhu@2000",
+      "resume_file_path" : "C:\\python32-38\\Foundit\\data\\Madhu_Vanga_SDET_v6.pdf",
+      "skills" : "'Automation Testing','Manual Testing','Performance Testing'",
+      "jobFreshness" : 1
+    }
+  ]
+}

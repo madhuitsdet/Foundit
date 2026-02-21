@@ -3,11 +3,13 @@ import os
 import datetime
 from itertools import count
 from time import sleep
+import pytest
 from FounditAutomation.WebPages.Foundit_homepage import FounditHomepage
 from FounditAutomation.WebPages.Foundit_job_freshness import FounditJobFreshness
 from FounditAutomation.WebPages.Foundit_job_search import FounditJobSearch
 from FounditAutomation.WebPages.Foundit_login import FounditLogin
 from FounditAutomation.WebPages.Foundit_profilepage import FounditProfilepage
+from scripts.pywin32_testall import project_root
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -15,9 +17,23 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import service
 from selenium.webdriver.chrome.options import Options
+import json
+import os
 
+# 1. Get the directory where the test file lives (FounditAutomation/tests)
+current_directory = os.path.dirname(__file__)
+# 2. Go up one level (FounditAutomation)
+parent_dir = os.path.dirname(current_directory)
+# 3. Go up another level (Foundit root)
+project_root = os.path.dirname(os.path.join(parent_dir))
+# 4. Correctly join with the data folder
+jsonpath = os.path.join(project_root, "data", "test_foundit_parameterized.json")
+with open(jsonpath) as f:
+    test_data = json.load(f)
+    list_data = test_data["data"]
 
-def test_TestCase_01(test_browser):
+@pytest.mark.parametrize("list_data_items", list_data)
+def test_TestCase_01(test_browser, list_data_items):
     driver = test_browser
     # --- HANDLING OVERLAYS ---
     # 1. Close Cookie Banner if it exists
@@ -29,7 +45,7 @@ def test_TestCase_01(test_browser):
 
     #******************login page**********************************************
     foundit_login = FounditLogin(driver)
-    foundit_login.foundit_login("madhuitsdet@gmail.com", "Madhu@2000")
+    foundit_login.foundit_login(list_data_items["userName"], list_data_items["password"])
 
     #********************homepage**************************************************
     foundit_homepage = FounditHomepage(driver)
@@ -37,21 +53,17 @@ def test_TestCase_01(test_browser):
 
     #***********************profile page**********************************************
     foundit_profilepage = FounditProfilepage(driver)
-    foundit_profilepage.foundit_profilepage()
+    foundit_profilepage.foundit_profilepage(list_data_items["resume_file_path"])
 
 
     #*******************Job search ************************************************
     foundit_jobsearch = FounditJobSearch(driver)
-    foundit_jobsearch.foundit_jobsearch()
+    foundit_jobsearch.foundit_jobsearch(list_data_items["skills"])
 
 
     #**************Job freshness*********************************************************
     foundit_job_freshness = FounditJobFreshness(driver)
-    foundit_job_freshness.foundit_job_freshness()
-
-
-
-
+    foundit_job_freshness.foundit_job_freshness(list_data_items["jobFreshness"])
 
 
 

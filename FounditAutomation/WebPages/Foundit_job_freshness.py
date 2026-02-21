@@ -11,8 +11,8 @@ class FounditJobFreshness:
     def __init__(self, driver):
         self.driver = driver
 
-    def foundit_job_freshness(self):
-        job_freshness = 1
+    def foundit_job_freshness(self, job_freshness):
+        # job_freshness = 1
         action = ActionChains(self.driver)
         element = self.driver.find_element(By.XPATH, "//span[contains(text(),'Job Freshness')]")
         self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
@@ -22,7 +22,7 @@ class FounditJobFreshness:
         except:
             self.driver.execute_script("arguments[0].click();", element)
         action.scroll_to_element(element).perform()
-        self.driver.find_element(By.XPATH, "//span[contains(text(),'Last 1 days')]").click()
+        self.driver.find_element(By.XPATH, f"//span[contains(text(),'Last {job_freshness} days')]").click()
         # WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Test') or contains(text(),'Performance') or contains(text(),'QA') or contains(text(),'pytest')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")))
         # time.sleep(5)
         Quick_jobs = self.driver.find_elements(By.XPATH, "//a[contains(text(),'Test') or contains(text(),'Performance') or contains(text(),'QA') or contains(text(),'pytest')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")

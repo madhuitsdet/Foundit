@@ -6,13 +6,13 @@ class FounditProfilepage:
     def __init__(self, driver):
         self.driver = driver
 
-    def foundit_profilepage(self):
+    def foundit_profilepage(self, resume_file_path):
         # ***********************profile page**********************************************
         # Get the directory where pytest_end_to_end.py is located
-        current_dir = os.path.dirname(os.path.abspath(__file__))
+        # current_dir = os.path.dirname(os.path.abspath(__file__))
 
         # Move up one level to FounditAutomation, then into data
-        resume_file_path = os.path.join(current_dir, "..", "data", "Madhu_Vanga_SDET_v6.pdf")
+        # resume_file_path = os.path.join(current_dir, "..", "data", "Madhu_Vanga_SDET_v6.pdf")
 
         # # Standardize the path for the OS (fixes slash issues)
         resume_file_path = os.path.normpath(resume_file_path)
