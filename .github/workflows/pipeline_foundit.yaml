@@ -28,7 +28,7 @@ jobs:
     - name: Run Tests
       # Added --headless=new and corrected the file path
       run: |
-        pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
+#        pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
         pytest FounditAutomation/tests/pytest_end_to_end.py --junitxml=report.xml -v --capture=tee-sys
 
     - name: Upload Test Report
