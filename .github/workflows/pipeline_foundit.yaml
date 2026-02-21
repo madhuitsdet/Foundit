@@ -30,7 +30,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Tests
-      # Added --headless=new and corrected the file path
+      # Added --headless=new and corrected the file
       run: |
         pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
 
