@@ -3,7 +3,6 @@ import os
 import datetime
 from itertools import count
 from time import sleep
-
 from FounditAutomation.WebPages.Foundit_homepage import FounditHomepage
 from FounditAutomation.WebPages.Foundit_job_freshness import FounditJobFreshness
 from FounditAutomation.WebPages.Foundit_job_search import FounditJobSearch
