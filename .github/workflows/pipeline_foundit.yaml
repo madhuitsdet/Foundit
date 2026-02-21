@@ -35,7 +35,6 @@ jobs:
         PYTHONPATH: ${{ github.workspace }}
       # Added --headless=new and corrected the file
       run: |
-#        pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
         pytest FounditAutomation/tests/test_foundit_parameterized.py --html=reports.html --self-contained-html -v --capture=tee-sys
 
     - name: Upload Test Report
@@ -44,3 +43,5 @@ jobs:
       with:
         name: pytest-report
         path: report.xml
+
+    #        pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
