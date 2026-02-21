@@ -9,8 +9,10 @@ class FounditLogin:
     def foundit_login(self, userName, password):
         # ******************login page**********************************************
         time.sleep(5)
+        self.driver.save_screenshot("debug_headless.png")
         welcomepage = self.driver.find_element(By.CSS_SELECTOR, "div[class='flex_start h-9 grow cursor-pointer gap-5']").text
         print(welcomepage)
+        self.driver.save_screenshot("debug_headless.png")
         self.driver.find_element(By.CSS_SELECTOR, "div[class='flex gap-4'] button[type='button']:nth-child(1)").click()
         self.driver.find_element(By.XPATH, "//span[contains(text(),'Login via Password')]").click()
         self.driver.find_element(By.ID, "userName").send_keys(f"{userName}")
