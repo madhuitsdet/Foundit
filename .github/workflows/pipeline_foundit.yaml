@@ -33,7 +33,7 @@ jobs:
       env:
         # This tells Python to include the current directory in its search path
         PYTHONPATH: ${{ github.workspace }}
-      # Added --headless=new and corrected the file
+      # Added --headless=new and corrected the file m
       run: |
         pytest FounditAutomation/tests/test_foundit_parameterized.py --html=reports.html --self-contained-html --junitxml=report.xml -v --capture=tee-sys
 
