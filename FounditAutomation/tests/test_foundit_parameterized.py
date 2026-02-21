@@ -48,8 +48,9 @@ def test_TestCase_01(test_browser, list_data_items):
     foundit_homepage.foundit_homepage()
 
     #***********************profile page**********************************************
+    resume_file_path = os.path.join(project_root, "data", "Madhu_Vanga_SDET_v6.pdf")
     foundit_profilepage = FounditProfilepage(driver)
-    foundit_profilepage.foundit_profilepage(list_data_items["resume_file_path"])
+    foundit_profilepage.foundit_profilepage(resume_file_path)
 
 
     #*******************Job search ************************************************
