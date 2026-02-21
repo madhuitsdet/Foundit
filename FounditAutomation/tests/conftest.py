@@ -41,17 +41,6 @@ def test_browser(request):
     elif browser_name == "edgeheadless":
         edge_options = EdgeOptions()
         edge_options.add_argument("--headless=new")
-        edge_options.add_argument("--disable-blink-features=AutomationControlled")
-        edge_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        edge_options.add_experimental_option("useAutomationExtension", False)
-        edge_options.add_argument("--disable-gpu")
-        edge_options.add_argument("--no-sandbox")
-        edge_options.add_argument("--disable-dev-shm-usage")
-        edge_options.add_argument("--remote-debugging-port=9222")
-        edge_options.add_argument("--start-maximized")
-        edge_options.add_argument(r"--user-data-dir=C:\temp\EdgeProfile")
-        edge_options.add_argument("--window-size=1920,1080")
-        edge_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36")
         driver = webdriver.Edge(options=edge_options)
 
     driver.get("https://www.foundit.in/")
