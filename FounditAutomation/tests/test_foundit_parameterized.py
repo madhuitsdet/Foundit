@@ -9,7 +9,6 @@ from FounditAutomation.WebPages.Foundit_job_freshness import FounditJobFreshness
 from FounditAutomation.WebPages.Foundit_job_search import FounditJobSearch
 from FounditAutomation.WebPages.Foundit_login import FounditLogin
 from FounditAutomation.WebPages.Foundit_profilepage import FounditProfilepage
-from scripts.pywin32_testall import project_root
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -20,14 +19,11 @@ from selenium.webdriver.chrome.options import Options
 import json
 import os
 
-# 1. Get the directory where the test file lives (FounditAutomation/tests)
-current_directory = os.path.dirname(__file__)
-# 2. Go up one level (FounditAutomation)
-parent_dir = os.path.dirname(current_directory)
-# 3. Go up another level (Foundit root)
-project_root = os.path.dirname(os.path.join(parent_dir))
-# 4. Correctly join with the data folder
+# Correct relative path navigation from FounditAutomation/tests/ to /data/
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
 jsonpath = os.path.join(project_root, "data", "test_foundit_parameterized.json")
+
 with open(jsonpath) as f:
     test_data = json.load(f)
     list_data = test_data["data"]
