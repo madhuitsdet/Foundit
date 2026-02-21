@@ -30,6 +30,9 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Tests
+      env:
+        # This tells Python to include the current directory in its search path
+        PYTHONPATH: ${{ github.workspace }}
       # Added --headless=new and corrected the file
       run: |
         pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
