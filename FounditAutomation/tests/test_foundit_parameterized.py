@@ -32,7 +32,7 @@ with open(jsonpath) as f:
 def test_TestCase_01(test_browser, list_data_items):
     driver = test_browser
     # --- HANDLING OVERLAYS ---
-    # 1. Close Cookie Banner if it exist
+    # 1. Close Cookie Banner if it existss
     try:
         # Based on Foundit's usual structure okay
         driver.find_element(By.XPATH, "//button[contains(text(),'Okay')]").click()
