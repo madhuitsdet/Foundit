@@ -9,6 +9,8 @@ on:
   schedule:
     # Example: Runs at 02:00 UTC (7:30 AM IST) every day
     - cron: '39 8 * * *'
+      workflow_dispatch:
+
 
 jobs:
   test:
