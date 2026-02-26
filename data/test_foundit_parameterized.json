@@ -3,8 +3,9 @@
     {
       "userName" : "madhuitsdet@gmail.com",
       "password" : "Madhu@2000",
+      "resume_file_path" : "Madhu_Vanga_SDET_v6.pdf",
       "skills" : "'Automation Testing','Manual Testing','Performance Testing'",
-      "jobFreshness" : 1
+      "jobFreshness" : 30
     }
   ]
 }
