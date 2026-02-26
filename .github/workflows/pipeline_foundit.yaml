@@ -2,9 +2,13 @@ name: Selenium Pytest CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "develop" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "develop" ]
+  # This adds the daily trigger
+  schedule:
+    # Example: Runs at 02:00 UTC (7:30 AM IST) every day
+    - cron: '0 14 * * *'
 
 jobs:
   test:
