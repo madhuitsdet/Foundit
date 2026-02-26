@@ -8,7 +8,7 @@ on:
   # This adds the daily trigger
   schedule:
     # Example: Runs at 02:00 UTC (7:30 AM IST) every day
-    - cron: '0 14 * * *'
+    - cron: '36 8 * * *'
 
 jobs:
   test:
@@ -46,6 +46,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: pytest-report
-        path: report.xml
+        path: report.html
 
     #        pytest FounditAutomation/tests/test_foundit_parameterized.py --junitxml=report.xml -v --capture=tee-sys
