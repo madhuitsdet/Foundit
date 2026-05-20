@@ -34,7 +34,7 @@ def test_TestCase_01(test_browser, list_data_items):
     # --- HANDLING OVERLAYS ---
     # 1. Close Cookie Banner if it exists
     try:
-        # Based on Foundit's usual structure okay
+        # Based on Foundit's usual structure okay.s
         driver.find_element(By.XPATH, "//button[contains(text(),'Okay')]").click()
     except:
         pass
