@@ -3,8 +3,23 @@
     {
       "userName" : "madhuitsdet@gmail.com",
       "password" : "Madhu@2000",
+      "resume_file_path" : "C:\\python32-38\\Foundit\\data\\Madhu_Vanga_SDET_v6.pdf",
       "skills" : "'Automation Testing','Manual Testing','Performance Testing'",
-      "jobFreshness" : 1
+      "jobFreshness" : 30
+    },
+    {
+      "userName" : "anupamam2212000@gmail.com",
+      "password" : "Anu630@22",
+      "resume_file_path" : "C:\\python32-38\\Foundit\\data\\Anupama_Macharla_v6.pdf",
+      "skills" : "'Automation Testing','Manual Testing'",
+      "jobFreshness" : 30
+    },
+    {
+      "userName" : "asheervadam.jobs@gmail.com",
+      "password" : "Bunny@123",
+      "resume_file_path" : "C:\\python32-38\\Foundit\\data\\Asheervadam.Telecom_profile.pdf",
+      "skills" : " 'telecom design engineer', 'telecom network engineer', 'manual testing', 'Automation testing'",
+      "jobFreshness" : 30
     }
   ]
 }

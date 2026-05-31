@@ -8,7 +8,7 @@ class FounditHomepage:
 
     def foundit_homepage(self):
         # ********************homepage**************************************************
-        homepagevalidation = self.driver.find_element(By.CSS_SELECTOR, "span[class='text-brand-primary']").text
+        homepagevalidation = self.driver.find_element(By.CSS_SELECTOR, "div[class='flex_start h-9 grow cursor-pointer gap-5']").text
         print("homepage " + homepagevalidation)
         time.sleep(1)
         self.driver.find_element(By.CSS_SELECTOR, "span[class='w-20 truncate text-xs']").click()

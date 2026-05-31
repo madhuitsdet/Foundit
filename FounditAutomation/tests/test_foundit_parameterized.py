@@ -24,6 +24,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(current_dir))
 jsonpath = os.path.join(project_root, "data", "test_foundit_parameterized.json")
 
+# jsonpath = "C:\\python32-38\\Foundit\\data\\Madhu_Vanga_SDET_v6.pdf"
+
 with open(jsonpath) as f:
     test_data = json.load(f)
     list_data = test_data["data"]
@@ -48,9 +50,9 @@ def test_TestCase_01(test_browser, list_data_items):
     foundit_homepage.foundit_homepage()
 
     #***********************profile page**********************************************
-    resume_file_path = os.path.join(project_root, "data", "Madhu_Vanga_SDET_v6.pdf")
+    # resume_file_path = os.path.join(project_root, "data", "Madhu_Vanga_SDET_v6.pdf")
     foundit_profilepage = FounditProfilepage(driver)
-    foundit_profilepage.foundit_profilepage(resume_file_path)
+    foundit_profilepage.foundit_profilepage(list_data_items["resume_file_path"])
 
 
     #*******************Job search ************************************************

@@ -25,7 +25,7 @@ class FounditJobFreshness:
         self.driver.find_element(By.XPATH, f"//span[contains(text(),'Last {job_freshness} days')]").click()
         # WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(text(),'Test') or contains(text(),'Performance') or contains(text(),'QA') or contains(text(),'pytest')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")))
         # time.sleep(5)
-        Quick_jobs = self.driver.find_elements(By.XPATH, "//a[contains(text(),'Test') or contains(text(),'Performance') or contains(text(),'QA') or contains(text(),'pytest')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")
+        Quick_jobs = self.driver.find_elements(By.XPATH, "//span[contains(text(),'Test') or contains(text(),'Performance') or contains(text(),'QA') or contains(text(),'pytest')]/ancestor::div[@class='jobCardWrapper flex w-full flex-col gap-1']/descendant::button[contains(text(), 'Quick Apply')]")
         count = len(Quick_jobs)
         print("Quick Apply: {}".format(count))
         for job in Quick_jobs:

@@ -13,7 +13,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 def pytest_addoption(parser):
-    parser.addoption("--browser_name", action="store", default="firefoxheadless", help="browser selectino")
+    parser.addoption("--browser_name", action="store", default="chrome", help="browser selectino")
 
 @pytest.fixture(scope="function")
 def test_browser(request):
